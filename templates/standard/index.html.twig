@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} {{parent()}} {% endblock %}
+
+{% block stylesheets %} {{ parent() }} {% endblock %}
+
+{% block body %}
+{{parent()}}
+{# Comentario to guapo #}
+
+{% set mivariable = 'Hola mundo' %}
+{{mivariable}} <br>
+
+{{SumaEntreNumeroUnoYNumeroDos}}
+<br>
+
+{% if Num1 > Num2 %}
+    Número 1 es mayor
+    {% else %}
+    Número 2 es mayor
+{% endif %}
+
+<br>
+
+{{nombres | upper}}
+
+<br>
+
+{% set ArrayNombres = nombres | split(',') %}
+{% for nombre in ArrayNombres %}
+    * {{nombre}} <br>
+{% endfor %}
+
+<br>
+
+<a href="{{ path('pagina2',{'nombre': 'Marti BK'} ) }}">Ir a página 2</a>
+
+<!-- Llamar al formulario -->
+<br>
+{{form_start(form)}}
+{{form_end(form)}}
+
+{% endblock %}
+
+{% block javascripts %} {{ parent() }} {% endblock %}
